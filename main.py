@@ -321,7 +321,7 @@ if st.session_state['show_results']:
                     report_content = st.session_state['generated_reports'][survey_key]['content']
                     file_name = st.session_state['generated_reports'][survey_key]['file_name']
                     st.download_button(
-                        label=f"Descargar", #Reporte de '{survey['title']}'",
+                        label=f"Descargar Reporte: {course_id}", #Reporte de '{survey['title']}'",
                         data=report_content,
                         file_name=file_name,
                         mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',

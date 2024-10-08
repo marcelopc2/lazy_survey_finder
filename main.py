@@ -117,7 +117,7 @@ def generate_report(course_id, quiz_id, quiz_title):
         return None, None
 
 # Título de la aplicación
-st.title("Lazy Survey Data Finder 0.2")
+st.title("Lazy Survey Data Finder WEB 1.0")
 
 # Ingresar IDs de cursos
 course_ids_input = st.text_area("Ingresa los IDs de los cursos que quieras analizar:")

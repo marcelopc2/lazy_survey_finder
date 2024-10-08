@@ -300,7 +300,7 @@ if st.session_state['show_results']:
             df = pd.DataFrame(survey_results)
             df_display = df[['Encuesta', 'N° Inscritos', 'N° Contestadas', '% Contestadas', 'No Contestadas', '% No Contestadas']]
             df_display.reset_index(drop=True, inplace=True)
-            st.write(f"##### {course_name}")
+            st.write(f"##### {course_name} ({course_id})")
             st.dataframe(df_display, hide_index=True)
 
             # Agregar resultados al total

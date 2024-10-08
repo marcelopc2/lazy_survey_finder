@@ -3,9 +3,10 @@ import requests
 import pandas as pd
 from io import BytesIO
 import os
+from decouple import config
 
 canvas_url = "https://canvas.uautonoma.cl"
-canvas_token = os.getenv('CANVAS_API_TOKEN')
+canvas_token = config('CANVAS_API_TOKEN')
 if not canvas_token:
     raise ValueError(
         "El token de acceso no está configurado. Por favor, establece la variable de entorno 'CANVAS_API_TOKEN'.")
@@ -321,7 +322,7 @@ if st.session_state['show_results']:
                     report_content = st.session_state['generated_reports'][survey_key]['content']
                     file_name = st.session_state['generated_reports'][survey_key]['file_name']
                     st.download_button(
-                        label=f"Descargar Reporte: {course_id}", #Reporte de '{survey['title']}'",
+                        label=f"Descargar Reporte: {survey['title']}", #Reporte de '{survey['title']}'",
                         data=report_content,
                         file_name=file_name,
                         mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
@@ -329,7 +330,7 @@ if st.session_state['show_results']:
                     )
                 else:
                     # El reporte no ha sido generado, mostrar botón de generación
-                    if st.button(f"Reporte", key=f"generate_{survey_key}"): #Reporte de '{survey['title']}'", key=f"generate_{survey_key}"):
+                    if st.button(f"Generar reporte: {survey['title']}", key=f"generate_{survey_key}"): #Reporte de '{survey['title']}'", key=f"generate_{survey_key}"):
                         with st.spinner('Generando'):
                             report_content, file_name = generate_report(course_id, survey['id'], survey['title'])
                             if report_content:
@@ -402,7 +403,7 @@ if st.session_state['show_results']:
         processed_data = output.getvalue()
 
         st.download_button(
-            label="Descargar resultados en Excel",
+            label="Descargar TODOS los resultados en Excel",
             data=processed_data,
             file_name='resultados_encuestas.xlsx',
             mime='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'

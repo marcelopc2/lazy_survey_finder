@@ -13,7 +13,7 @@ if not canvas_token:
 headers = {
     'Authorization': f'Bearer {canvas_token}'
 }
-st.set_page_config(page_title="Lazy Survey Data Finder 0.2", layout='wide')
+st.set_page_config(page_title="Lazy Survey Data Finder WEB 1.0", layout='wide')
 
 # Inicializar el estado de la sesión
 if 'selected_surveys' not in st.session_state:

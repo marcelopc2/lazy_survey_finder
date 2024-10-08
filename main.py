@@ -401,7 +401,9 @@ if st.session_state['show_results']:
             worksheet.set_column('F:F', 17, center_format)
 
         processed_data = output.getvalue()
-
+        
+        st.markdown("---")
+        
         st.download_button(
             label="Descargar TODOS los resultados en Excel",
             data=processed_data,

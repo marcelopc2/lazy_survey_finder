@@ -58,6 +58,7 @@ def get_quizzes(course_id):
         return None
 
 # Función para generar el reporte de una encuesta y convertirlo a Excel
+@st.cache_data
 def generate_report(course_id, quiz_id, quiz_title):
     report_url = f"{canvas_url}/api/v1/courses/{course_id}/quizzes/{quiz_id}/reports"
     report_payload = {
